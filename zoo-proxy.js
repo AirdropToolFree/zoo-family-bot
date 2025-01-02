@@ -490,6 +490,7 @@ class Zoo {
 
         queue.drain(() => {
             this.log('Đã xử lý hết tất cả các tài khoản. Đang chờ 61 phút trước khi lặp lại...', 'info');
+            this.resetCache();
             this.countdown(61 * 60, 'info').then(() => {
                 data.forEach((initData, index) => {
                     const proxyUrl = this.proxyList[index % this.proxyList.length];
